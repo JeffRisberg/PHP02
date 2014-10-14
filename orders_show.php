@@ -4,7 +4,8 @@
 </head>
 <body>
 
-<?php include 'head.php'; ?>
+<?php include '_head.php'; ?>
+<?php include '_connect.php'; ?>
 
 <h3>Current orders:</h3>
 <table>
@@ -14,12 +15,6 @@
         <th>Date</th>
     </tr>
     <?php
-
-    $user = "developer";
-    $password = "123456";
-    $host = "localhost";
-    $db_name = "php02";
-
     $db_connection = mysqli_connect($host, $user, $password, $db_name);
     $sql = <<<SQL
     SELECT o.buyer_name as buyer, o.date_created as date, pt.name as type

@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<?php include 'head.php'; ?>
+<?php include '_head.php'; ?>
 
 <div style="background-color: #AAAA80">
     <h3>We offer your favorites</h3>

@@ -4,18 +4,12 @@
 </head>
 <body>
 
-<?php include 'head.php'; ?>
+<?php include '_head.php'; ?>
+<?php include '_connect.php'; ?>
 
 <h3>What tastes good to you?</h3>
 
 <?php
-
-$user = "developer";
-$password = "123456";
-$host = "localhost";
-$db_name = "php02";
-
-$db_connection = mysqli_connect($host, $user, $password, $db_name);
 $sql = <<<SQL
     SELECT *
     FROM pizza_types
