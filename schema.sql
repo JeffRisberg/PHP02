@@ -16,7 +16,8 @@ create table orders (
 	type_id      int(11)      NOT NULL,
 	date_created datetime     NOT NULL,
 	last_updated datetime     NOT NULL,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (type_id) REFERENCES pizza_types (id)
 )
 	ENGINE =InnoDB
 	DEFAULT CHARSET =latin1
