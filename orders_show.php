@@ -26,9 +26,9 @@ SQL;
     }
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         echo "<tr>";
-        echo "<td>" . $row['buyer'] . "</td>";
-        echo "<td>" . $row['type'] . "</td>";
-        echo "<td>" . $row['date'] . "</td>";
+        echo "<td>{$row['buyer']}</td>";
+        echo "<td>{$row['type']}</td>";
+        echo "<td>{$row['date']}</td>";
         echo "</tr>";
     }?>
 </table>
