@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="/PHP02/css/styles.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
@@ -8,7 +8,7 @@
 <?php include '_connect.php'; ?>
 
 <h3>Current orders:</h3>
-<table>
+<table border="1">
     <tr>
         <th>Buyer</th>
         <th>Type</th>
@@ -33,6 +33,5 @@ SQL;
     }?>
 </table>
 
-<a href="/PHP02">Back</a>
 </body>
 </html>

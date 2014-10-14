@@ -11,5 +11,5 @@ if (!$result = mysqli_query($db_connection,
     die('There was an error running the query [' . mysqli_error($db_connection) . ']');
 }
 
-header('Location: http://localhost/PHP02/index.php');
+header('Location: index.php');
 
