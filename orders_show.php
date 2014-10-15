@@ -20,7 +20,7 @@
     FROM orders o
     INNER JOIN pizza_types pt ON o.type_id = pt.id
     INNER JOIN users u ON o.user_id = u.id
-    ORDER BY date
+    ORDER BY date DESC
 SQL;
 
     if (!$result = mysqli_query($db_connection, $sql)) {
