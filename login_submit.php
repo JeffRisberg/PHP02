@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 /**
  * Created by PhpStorm.
  * User: Brandon
@@ -12,3 +14,4 @@ session_start();
 $_SESSION['user_id'] = 1;
 
 header('Location: index.php');
+
