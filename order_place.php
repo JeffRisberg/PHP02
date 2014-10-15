@@ -1,9 +1,9 @@
-<?php include '_connect.php'; ?>
-
 <?php
-session_start();
-if (array_key_exists('user_id', $_SESSION)){
-    $user_id = $_SESSION['user_id'];
+
+include '_connect.php';
+include '_login.php';
+
+if ($b_user_logged_in){
     $type_id = $_REQUEST['type_id'];
 
     if (!$result = mysqli_query($db_connection,
@@ -19,3 +19,4 @@ else {
 
 header('Location: index.php');
 
+?>
