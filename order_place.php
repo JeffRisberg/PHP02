@@ -1,14 +1,20 @@
 <?php include '_connect.php'; ?>
 
 <?php
-$user_id = 1; //$_REQUEST['user_id'];
-$type_id = $_REQUEST['type_id'];
+session_start();
+if (array_key_exists('user_id', $_SESSION)){
+    $user_id = $_SESSION['user_id'];
+    $type_id = $_REQUEST['type_id'];
 
-if (!$result = mysqli_query($db_connection,
-    "insert into orders (user_id, type_id, date_created, last_updated) " .
-    "values('" . $user_id . "', '" . $type_id . "', now(), now())")
-) {
-    die('There was an error running the query [' . mysqli_error($db_connection) . ']');
+    if (!$result = mysqli_query($db_connection,
+        "insert into orders (user_id, type_id, date_created, last_updated) " .
+        "values('" . $user_id . "', '" . $type_id . "', now(), now())")
+    ) {
+        die('There was an error running the query [' . mysqli_error($db_connection) . ']');
+    }
+}
+else {
+    die('User was not logged in.');
 }
 
 header('Location: index.php');

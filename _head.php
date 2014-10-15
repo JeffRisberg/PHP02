@@ -8,6 +8,7 @@
             <td style="padding: 5px"><a href="menu.php">Menu</a></td>
             <td style="padding: 5px"><a href="order_form.php">Place Order</a></td>
             <td style="padding: 5px"><a href="orders_show.php">Show Orders</a></td>
+            <td style="padding: 5px"><a href="login_form.php">Login</a></td>
         </tr>
     </table>
 </div>
