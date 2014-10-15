@@ -15,10 +15,11 @@
         <th>Date</th>
     </tr>
     <?php
-    $db_connection = mysqli_connect($host, $user, $password, $db_name);
     $sql = <<<SQL
-    SELECT o.buyer_name as buyer, o.date_created as date, pt.name as type
-    FROM orders o LEFT JOIN pizza_types pt on o.type_id = pt.id
+    SELECT u.user_name AS buyer_name, pt.name AS pizza_type, o.date_created AS date
+    FROM orders o
+    INNER JOIN pizza_types pt ON o.type_id = pt.id
+    INNER JOIN users u ON o.user_id = u.id
 SQL;
 
     if (!$result = mysqli_query($db_connection, $sql)) {
@@ -26,8 +27,8 @@ SQL;
     }
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         echo "<tr>";
-        echo "<td>{$row['buyer']}</td>";
-        echo "<td>{$row['type']}</td>";
+        echo "<td>{$row['buyer_name']}</td>";
+        echo "<td>{$row['pizza_type']}</td>";
         echo "<td>{$row['date']}</td>";
         echo "</tr>";
     }?>
