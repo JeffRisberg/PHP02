@@ -7,6 +7,7 @@
 
     <table style="background-color: #9999cc; padding: 5px">
         <tr>
+            <td style="padding: 5px"><a href="index.php">Home</a></td>
             <td style="padding: 5px"><a href="menu.php">Menu</a></td>
             <td style="padding: 5px"><a href="order_form.php">Place Order</a></td>
             <td style="padding: 5px"><a href="orders_show.php">Show Orders</a></td>
