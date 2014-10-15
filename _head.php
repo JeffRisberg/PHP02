@@ -1,6 +1,4 @@
-<?php
-include '_login.php';
-?>
+<?php include '_login.php'; ?>
 
 <div class="head">
 
