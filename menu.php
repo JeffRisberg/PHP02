@@ -1,11 +1,11 @@
+<?php include '_head.php'; ?>
+<?php include '_connect.php'; ?>
+
 <html>
 <head>
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-
-<?php include '_head.php'; ?>
-<?php include '_connect.php'; ?>
 
 Our pizza types are:
 <ul>

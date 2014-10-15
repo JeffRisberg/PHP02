@@ -1,3 +1,8 @@
+<?php
+include '_head.php';
+include '_connect.php';
+?>
+
 <html>
 <head>
     <link rel="stylesheet" href="css/styles.css"/>
@@ -11,9 +16,6 @@
  * Date: 10/14/2014
  * Time: 7:07 PM
  */
-
-include '_head.php';
-include '_connect.php';
 
 ?>
 
@@ -43,6 +45,7 @@ echo 'Debug dump of all registered users:<br>';
 
 while ($row = $result->fetch_assoc()) {
     var_dump($row);
+    echo '<br>';
 }
 ?>
 
