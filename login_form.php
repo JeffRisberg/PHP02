@@ -29,6 +29,21 @@ include '_connect.php';
     </table>
 </form>
 
+
+<?php
+    if (array_key_exists('error', $_GET)) {
+        if ($_GET['error'] == 1) {
+            echo 'Incorrect password for user.<br><br>';
+        }
+        else if ($_GET['error'] == 2) {
+            echo 'No user found for user name.<br><br>';
+        }
+        else {
+            echo 'Unknown error.<br><br>';
+        }
+    }
+?>
+
 <?php
 // Debug output to list all known users for testing purposes
 

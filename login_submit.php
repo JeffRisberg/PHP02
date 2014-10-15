@@ -30,14 +30,19 @@ if ($result->num_rows != 0) {
         session_start();
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_name'] = $row['user_name'];
+        header('Location: index.php');
     }
     else {
-        die('Incorrect password for user \'' . $user_name . '\'');
+        //$_POST['login_responce'] = 'Incorrect password for user \'' . $user_name . '\'';
+        header('Location: login_form.php?error=1');
+        //die('Incorrect password for user \'' . $user_name . '\'');
     }
 }
 else {
-    die('No user found for user name: ' . $user_name . '.');
+    //$_POST['login_responce'] = 'No user found for user name: ' . $user_name . '.';
+    header('Location: login_form.php?error=2');
+    //die('No user found for user name: ' . $user_name . '.');
 }
 
-header('Location: index.php');
+
 
