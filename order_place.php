@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 include '_connect.php';
 include '_login.php';
@@ -12,8 +14,7 @@ if ($b_user_logged_in){
     ) {
         die('There was an error running the query [' . mysqli_error($db_connection) . ']');
     }
-}
-else {
+} else {
     die('User was not logged in.');
 }
 
