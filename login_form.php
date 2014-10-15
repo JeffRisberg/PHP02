@@ -27,5 +27,24 @@ include '_connect.php';
     </table>
 </form>
 
+<?php
+// Debug output to list all known users for testing purposes
+
+$sql = <<<SQL
+SELECT id, user_name, password
+FROM users
+SQL;
+
+if (!$result = mysqli_query($db_connection, $sql)) {
+    die('There was an error running the query [' . mysqli_error($db_connection) . ']');
+}
+
+echo 'Debug dump of all registered users:<br>';
+
+while ($row = $result->fetch_assoc()) {
+    var_dump($row);
+}
+?>
+
 </body>
 </html>
