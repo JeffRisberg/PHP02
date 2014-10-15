@@ -14,7 +14,8 @@ if ($b_user_logged_in){
     ) {
         die('There was an error running the query [' . mysqli_error($db_connection) . ']');
     }
-} else {
+}
+else {
     die('User was not logged in.');
 }
 
