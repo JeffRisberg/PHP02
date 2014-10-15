@@ -1,8 +1,9 @@
-<?php include '_connect.php'; ?>
-
 <?php
+include '_connect.php';
+
 session_start();
-if (array_key_exists('user_id', $_SESSION)){
+
+if (array_key_exists('user_id', $_SESSION)) {
     $user_id = $_SESSION['user_id'];
     $type_id = $_REQUEST['type_id'];
 
@@ -12,8 +13,7 @@ if (array_key_exists('user_id', $_SESSION)){
     ) {
         die('There was an error running the query [' . mysqli_error($db_connection) . ']');
     }
-}
-else {
+} else {
     die('User was not logged in.');
 }
 
