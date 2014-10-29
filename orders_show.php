@@ -16,7 +16,7 @@
     </tr>
     <?php
     $sql = <<<SQL
-    SELECT u.user_name AS buyer_name, pt.name AS pizza_type, o.date_created AS date
+    SELECT o.id AS oder_id, u.user_name AS buyer_name, pt.name AS pizza_type, o.date_created AS date
     FROM orders o
     INNER JOIN pizza_types pt ON o.type_id = pt.id
     INNER JOIN users u ON o.user_id = u.id
@@ -31,6 +31,7 @@ SQL;
         echo "<td>{$row['buyer_name']}</td>";
         echo "<td>{$row['pizza_type']}</td>";
         echo "<td>{$row['date']}</td>";
+        echo "<td><a href=\"order_edit.php?order_id=" . $row['oder_id'] . "\">Edit</a></td>";
         echo "</tr>";
     }?>
 </table>
