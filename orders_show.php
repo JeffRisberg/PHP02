@@ -32,6 +32,7 @@ SQL;
         echo "<td>{$row['pizza_type']}</td>";
         echo "<td>{$row['date']}</td>";
         echo "<td><a href=\"order_edit.php?order_id=" . $row['oder_id'] . "\">Edit</a></td>";
+        echo "<td><a href=\"order_remove.php?order_id=" . $row['oder_id'] . "\">Delete</a></td>";
         echo "</tr>";
     }?>
 </table>
