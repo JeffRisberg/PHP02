@@ -16,9 +16,10 @@
 $order_id = $_REQUEST['order_id'];
 
 $sql = <<<SQL
-Select *
-From orders
-Where id = $order_id
+SELECT o.type_id as type_id, u.id as user_id, u.user_name as user_name
+FROM orders o
+INNER JOIN users u ON o.user_id = u.id
+WHERE o.id = $order_id
 SQL;
 
 if (!$results = mysqli_query($db_connection, $sql)) {
@@ -36,19 +37,18 @@ SELECT *
 FROM pizza_types
 SQL;
 
-
 if (!$pizza_result = mysqli_query($db_connection, $sql)) {
     die('There was an error running the query [' . mysqli_error($db_connection) . ']');
 }
-
 ?>
 
 <form action="order_update.php">
-    <input type="hidden" name="order_id" value="<?php echo $order_id; ?>" />
+    <input type="hidden" name="order_id" value="<?php echo $order_id; ?>"/>
+    <input type="hidden" name="user_id" value="<?php echo $row["user_id"]; ?>" readonly>
     <table>
         <tr>
             <td>My name:</td>
-            <td><input type="text" name="user_id" value="<?php echo $row["user_id"]; ?>" readonly></td>
+            <td><input type="text" value="<?php echo $row["user_name"]; ?>" readonly></td>
         </tr>
         <tr>
             <td>My type:</td>
@@ -56,7 +56,11 @@ if (!$pizza_result = mysqli_query($db_connection, $sql)) {
                 <select name="type_id">
                     <?php
                     while ($pizza_type_row = $pizza_result->fetch_assoc()) {
-                        echo "<option value='" . $pizza_type_row['id'] . "'>" . $pizza_type_row['name'] . "</option>";
+                        $pizza_type_id = $pizza_type_row['id'];
+                        $pizza_type_name = $pizza_type_row['name'];
+                        $selected = ($row['type_id'] == $pizza_type_id) ? "selected" : "";
+
+                        echo "<option value='" . $pizza_type_id . "' " . $selected . ">" . $pizza_type_name . "</option>";
                     }
                     ?>
                 </select>
